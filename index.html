@@ -740,7 +740,7 @@ const CANAL=(function(){
   const s=(qs.get('utm_source')||'').toLowerCase(), m=(qs.get('utm_medium')||'').toLowerCase();
   let c='';
   if(qs.has('fbclid')||/^(fb|facebook|ig|instagram|meta)/.test(s)) c='meta';
-  else if(qs.has('gclid')||qs.has('gbraid')||qs.has('wbraid')||(/google/.test(s)&&/cpc|ppc|paid|ads/.test(m))) c='google ads';
+  else if(qs.has('gclid')||qs.has('gbraid')||qs.has('wbraid')||(/google/.test(s)&&/cpc|ppc|paid|ads/.test(m))) c='googleads';
   else if(/(^|\.)google\./.test((document.referrer||'').replace(/^https?:\/\//,'').split('/')[0])) c='google';
   try{ if(c) sessionStorage.setItem('canal',c); else c=sessionStorage.getItem('canal')||''; }catch(e){}
   return c;
