@@ -4,207 +4,85 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Treino Barra Norte · Passo a passo</title>
+<title>Treinar o Oceano agora</title>
 <meta name="description" content="Treino de vendas por voz do Oceano / Barra Norte para os corretores da Vetta.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bairrobarranorte.com.br/simulacaodevendas/">
-<meta property="og:title" content="Treino de vendas · Oceano / Barra Norte">
-<meta property="og:description" content="Atenda um cliente simulado por voz no Claude e receba nota e dica. Corretores Vetta.">
+<meta property="og:title" content="Treinar o Oceano agora">
+<meta property="og:description" content="Um cliente do Barra Norte vai te chamar. Objetivo: marcar o próximo passo.">
 <meta property="og:image" content="https://bairrobarranorte.com.br/simulacaodevendas/img/oceano-portico.jpg">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" type="image/png" href="/img/favicon-32.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
-
-<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* Página única, escura no visual do Barra Norte: navy profundo, creme e laranja de chamada */
-:root{--ink:#122230;--card:#1A2E40;--line:rgba(236,230,211,.12);--accent:#FF6A1A;--soft:#F2B48A;--paper:#ECE6D3;--muted:rgba(236,230,211,.7);--teal:#5A9199;--ok:#7FD6A0;--no:#EF8A7A;color-scheme:dark}
+:root{--ink:#122230;--card:#1A2E40;--line:rgba(236,230,211,.12);--accent:#FF6A1A;--soft:#F2B48A;--paper:#ECE6D3;--muted:rgba(236,230,211,.72);--ok:#7FD6A0;color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--ink);color:var(--paper);font-family:Jost,system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-.wrap{max-width:860px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-header{position:relative;min-height:440px;padding-top:70px;display:flex;align-items:flex-end;background:linear-gradient(180deg,rgba(18,34,48,.25),rgba(18,34,48,.7) 50%,var(--ink)),url(img/oceano-portico.jpg) center/cover}
-header .wrap{padding-bottom:36px;width:100%}
-.kicker{font-size:12px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--soft);display:flex;align-items:center;gap:10px}
-.kicker:before{content:"";width:28px;height:1px;background:var(--soft)}
-h1,h2{font-weight:600;line-height:1.02;text-wrap:balance}
-h1{font-size:clamp(40px,7.5vw,68px);margin:14px 0 14px;text-transform:uppercase;letter-spacing:-.01em}
-h1 em,h2 em{font-style:normal;color:var(--accent)}
-h2{font-size:clamp(28px,4.6vw,40px);margin:10px 0 18px;text-transform:uppercase}
-.lead{font-size:18px;color:var(--muted);max-width:640px}
+body{background:var(--ink);color:var(--paper);font-family:Jost,system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:520px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+header{padding:64px 0 26px;background:linear-gradient(180deg,rgba(18,34,48,.3),rgba(18,34,48,.78) 55%,var(--ink)),url(img/oceano-portico.jpg) center 35%/cover}
+.kicker{font-size:11px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--soft)}
+h1{font-size:42px;line-height:1.02;margin:12px 0 10px;font-weight:600;text-transform:uppercase}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{color:var(--muted);font-size:16.5px}
 .lead b{color:var(--paper);font-weight:600}
-section{padding:46px 0;border-top:1px solid var(--line)}
-.pill{display:inline-flex;gap:8px;align-items:center;background:rgba(255,106,26,.12);border:1px solid rgba(255,106,26,.45);color:var(--soft);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:99px}
-.steps{list-style:none;counter-reset:s;display:grid;gap:14px}
-.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px 70px;position:relative}
-.steps li:before{content:counter(s);position:absolute;left:18px;top:16px;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:grid;place-items:center;font-size:17px}
-.steps h3{font-size:18px;font-weight:600}
-.steps p{color:var(--muted);font-size:15.5px;margin-top:4px}
+.steps{list-style:none;counter-reset:s;display:grid;gap:12px;margin:22px 0}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 64px;position:relative}
+.steps li:before{content:counter(s);position:absolute;left:16px;top:15px;width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:grid;place-items:center}
+.steps h3{font-size:17px;font-weight:600}
+.steps p{color:var(--muted);font-size:15px;margin-top:2px}
 .steps p b{color:var(--paper);font-weight:600}
-.path{display:inline-block;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;background:rgba(236,230,211,.08);border:1px solid var(--line);border-radius:6px;padding:1px 7px;color:var(--paper);white-space:nowrap}
-.say{display:inline-block;background:var(--accent);color:#fff;font-weight:700;border-radius:8px;padding:2px 10px}
-.note{margin-top:16px;background:rgba(255,106,26,.09);border-left:3px solid var(--accent);padding:14px 16px;border-radius:0 10px 10px 0;font-size:15px;color:var(--muted)}
-.note b{color:var(--paper);font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}
-.card h3{font-size:17px;font-weight:600}
-.card .who{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:600}
-.card p{color:var(--muted);font-size:15px;margin-top:6px}
-.lv{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-@media(max-width:600px){.lv{grid-template-columns:1fr}}
-.score{display:grid;gap:10px}
-.score div{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
-.score b.n{font-size:28px;font-weight:600;line-height:1;color:var(--accent);min-width:34px}
-.score h3{font-size:16px;font-weight:600}
-.score p{color:var(--muted);font-size:14.5px}
-.tbl{overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:15px;min-width:420px}
-th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:600}
-td b{color:var(--accent);font-weight:600}
-.rules{display:grid;gap:8px;margin-top:14px}
-.rules div{padding:12px 14px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:15px}
-.rules b{font-weight:600}
-.rules .ok:before{content:"✓ ";color:var(--ok);font-weight:700}
-.rules .no:before{content:"✕ ";color:var(--no);font-weight:700}
-.rules .wait:before{content:"… ";color:var(--soft);font-weight:700}
-button.copy{margin-top:16px;background:var(--accent);color:#fff;border:0;border-radius:12px;padding:14px 20px;font-family:Jost,system-ui,sans-serif;font-weight:700;font-size:16px;cursor:pointer;width:100%;max-width:420px}
-button.copy:focus-visible,.toc a:focus-visible,summary:focus-visible{outline:2px solid var(--soft);outline-offset:2px}
-button.copy.done{background:var(--ok);color:var(--ink)}
-.dl{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 16px;font-size:15px}
-.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
-.faq summary{cursor:pointer;font-weight:600}
-.faq p{color:var(--muted);margin-top:8px;font-size:15px}
-footer{padding:36px 0 60px;color:rgba(236,230,211,.45);font-size:13px;border-top:1px solid var(--line)}
-.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.toc a{color:var(--paper);text-decoration:none;font-size:14px;font-weight:500;border:1px solid var(--line);border-radius:99px;padding:7px 14px;background:rgba(18,34,48,.6)}
+.say{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font:700 16px Jost,system-ui,sans-serif;border:0;border-radius:8px;padding:5px 12px;margin-top:6px;cursor:pointer}
+.say small{font-weight:500;font-size:12px;opacity:.85}
+.say.done{background:var(--ok);color:var(--ink)}
+.btn{display:block;text-align:center;text-decoration:none;background:var(--accent);color:#fff;font-family:Jost,system-ui,sans-serif;font-weight:700;font-size:17px;border:0;border-radius:14px;padding:16px;width:100%;cursor:pointer}
+.btn.sec{background:transparent;color:var(--paper);border:1px solid rgba(236,230,211,.3);font-size:15.5px;font-weight:600}
+.btn.done{background:var(--ok);color:var(--ink);border-color:var(--ok)}
+.btn:focus-visible,.say:focus-visible{outline:2px solid var(--soft);outline-offset:2px}
+.tip{background:rgba(255,106,26,.1);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 14px;font-size:14.5px;color:var(--muted);margin:16px 0}
+.tip b{color:var(--paper);font-weight:600}
+h2{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin:30px 0 10px;font-weight:600}
+.small{font-size:14px;color:var(--muted);margin:10px 0}
+footer{padding:30px 0 50px;color:rgba(236,230,211,.42);font-size:12.5px;text-align:center}
 </style>
 </head>
 <body>
-
-
-<header>
-  <div class="wrap">
-    <div class="kicker">Vetta · Treino de vendas</div>
-    <h1>Treine o <em>Oceano</em><br>por voz, em 5 minutos.</h1>
-    <p class="lead">Você atende um <b>cliente simulado</b> do Barra Norte no Claude, falando pelo celular. No fim, recebe uma <b>nota e uma dica</b> para o próximo atendimento de verdade.</p>
-    <div class="toc"><a href="#instalar">1. Instalar</a><a href="#treinar">2. Treinar</a><a href="#clientes">Os clientes</a><a href="#nota">A nota</a><a href="#cola">Cola do Oceano</a><a href="#planob">Sem a skill?</a></div>
-  </div>
-</header>
-
+<header><div class="wrap">
+  <div class="kicker">Vetta · Treino Oceano</div>
+  <h1>Bora treinar.<br><em>5 minutos</em>, por voz.</h1>
+  <p class="lead">Um cliente do Barra Norte vai te chamar. Seu objetivo: <b>marcar a visita ao plantão ou a reserva</b>.</p>
+</div></header>
 <main class="wrap">
-
-<section id="instalar">
-  <span class="pill">Uma vez só · 5 minutos</span>
-  <h2>1. Instalar o <em>treino</em></h2>
-  <p class="lead" style="margin-bottom:20px">Use de preferência o <b>Claude Pro</b>: o treino é por voz, e no gratuito o limite acaba no meio da conversa. Faça a instalação pelo computador, em <b>claude.ai</b>.</p>
   <ol class="steps">
-    <li><h3>Baixe o arquivo do treino</h3><p>Toque no botão abaixo e salve o arquivo <span class="path">treino-barra-norte.zip</span>. Não precisa abrir nem descompactar.</p><a class="dl" href="treino-barra-norte.zip" download>Baixar treino-barra-norte.zip</a></li>
-    <li><h3>Ligue a criação de arquivos</h3><p>No Claude, vá em <span class="path">Configurações › Capacidades</span> e ative <b>Criar e editar arquivos</b> (às vezes aparece como "Execução de código e criação de arquivos"). Sem isso, a área de Skills não aparece.</p></li>
-    <li><h3>Envie a skill</h3><p>Vá em <span class="path">Personalizar › Skills</span>, toque no <b>+</b>, escolha enviar uma skill e selecione o arquivo <span class="path">.zip</span>. Confira se o <b>treino-barra-norte</b> ficou <b>ligado</b>.</p></li>
-    <li><h3>Coloque a voz em português</h3><p>No app do celular: <span class="path">Configurações › Geral › Voz › Idioma</span> e escolha <b>Português</b>. Mudar o idioma do app não muda o da voz.</p></li>
+    <li><h3>Abra o Claude</h3><p>Uma conversa nova, num lugar silencioso.</p></li>
+    <li><h3>Digite e envie</h3><button class="say" id="cmd" type="button">treinar Barra Norte <small>copiar</small></button></li>
+    <li><h3>Escolha e fale</h3><p>Diga o cliente e o nível (ou "sorteia"). Toque no ícone de <b>onda</b> ao lado do microfone e atenda. Para terminar, diga <b>avaliar</b>.</p></li>
   </ol>
-</section>
+  <a class="btn" href="https://claude.ai/new" target="_blank" rel="noopener">Abrir o Claude</a>
+  <div class="tip"><b>Não entrou no treino?</b> Digite: <i>Use a skill treino-barra-norte</i>.</div>
+  <div class="tip"><b>Quer mostrar seu resultado?</b> Peça a avaliação por escrito, tire um print e mande no grupo.</div>
 
-<section id="treinar">
-  <span class="pill">Todo dia · 5 minutos</span>
-  <h2>2. <em>Treinar</em></h2>
-  <ol class="steps">
-    <li><h3>Abra o Claude no celular</h3><p>Comece uma conversa nova. Fique num lugar silencioso.</p></li>
-    <li><h3>Digite e envie</h3><p><span class="say">treinar Barra Norte</span></p></li>
-    <li><h3>Escolha o cliente e o nível</h3><p>Diga qual cliente quer (investidor, casa de praia, mudança para Capão, cliente do Isla, apressada ou quem quer dar o carro) ou peça para <b>sortear</b>. Nível: fácil, médio ou difícil.</p></li>
-    <li><h3>Toque na onda e atenda</h3><p>Toque no ícone de <b>onda sonora</b>, ao lado do microfone, e atenda o cliente como se fosse uma ligação. Com barulho em volta, use o modo de <b>segurar para falar</b>.</p></li>
-    <li><h3>Peça a avaliação</h3><p>A avaliação vem quando o próximo passo é marcado ou o cliente desiste. Para encerrar antes, diga <span class="say">avaliar</span>.</p></li>
-  </ol>
-  <div class="note"><b>Objetivo de toda rodada: marcar a visita ao plantão ou a reserva, com dia e horário.</b> Antes de falar de preço, descubra para que o cliente quer o lote, quanto tem de entrada e quem decide.</div>
-  <div class="note"><b>Quer mostrar seu resultado?</b> No fim, peça <span class="say">avaliação por escrito</span>, tire um print e mande no grupo.</div>
-</section>
-
-<section id="clientes">
-  <span class="pill">Seis perfis</span>
-  <h2>Quem pode <em>aparecer</em></h2>
-  <p class="lead" style="margin-bottom:20px">Cada cliente esconde informações que <b>só aparecem se você perguntar</b>. Os detalhes mudam a cada rodada.</p>
-  <div class="grid">
-    <div class="card"><div class="who">Investidor</div><h3>Ricardo</h3><p>De Porto Alegre, dinheiro aplicado. "Meu dinheiro rende no CDI."</p></div>
-    <div class="card"><div class="who">Casa de praia</div><h3>Fabiane e Gilmar</h3><p>Família da Serra que aluga casa todo verão. Preocupados com o condomínio.</p></div>
-    <div class="card"><div class="who">Mudança para Capão</div><h3>Bruna e Thiago</h3><p>Querem morar na praia. "Hoje não tem nada lá."</p></div>
-    <div class="card"><div class="who">Cliente do Isla</div><h3>Sérgio</h3><p>Comprou no lançamento do Isla. Acha Capão mais popular que Xangri-Lá.</p></div>
-    <div class="card"><div class="who">Apressada</div><h3>Camila</h3><p>"Só me passa o preço." Pouca paciência.</p></div>
-    <div class="card"><div class="who">Quer dar o carro</div><h3>Paulo</h3><p>"Só fecho se pegarem minha caminhonete."</p></div>
-  </div>
-  <div class="lv" style="margin-top:12px">
-    <div class="card"><div class="who">Fácil</div><p>Cliente simpático, aceita o próximo passo com facilidade.</p></div>
-    <div class="card"><div class="who">Médio</div><p>Uma objeção forte. Precisa de um bom argumento.</p></div>
-    <div class="card"><div class="who">Difícil</div><p>Seco, interrompe, duas objeções e o famoso "vou pensar".</p></div>
-  </div>
-  <div class="note"><b>Pegadinha de propósito:</b> em toda rodada o cliente pergunta algo que a DeMello ainda não divulgou, como condomínio, data de entrega ou valor exato da parcela. Quem inventa perde ponto. Quem diz que ainda não saiu e se compromete a mandar, ganha.</div>
-</section>
-
-<section id="nota">
-  <span class="pill">Nota de 0 a 10</span>
-  <h2>Como você é <em>avaliado</em></h2>
-  <div class="score">
-    <div><b class="n">2</b><span><h3>Descoberta</h3><p>Perguntou de onde é, para que quer (morar, veraneio, investir), quanto tem de entrada e quem decide?</p></span></div>
-    <div><b class="n">2</b><span><h3>Bairro e lote certo</h3><p>Apresentou o Barra Norte antes do lote e indicou o lote que combina (seco ou frente lago)?</p></span></div>
-    <div><b class="n">2</b><span><h3>Objeção</h3><p>Tratou a objeção principal com o argumento certo?</p></span></div>
-    <div><b class="n">2</b><span><h3>Informação correta</h3><p>Falou valores e condições certos, sem inventar o que não foi divulgado nem prometer o que não pode?</p></span></div>
-    <div><b class="n">2</b><span><h3>Próximo passo</h3><p>Marcou a visita ao plantão ou a reserva, com dia e horário?</p></span></div>
-  </div>
-  <p class="lead" style="margin-top:16px">No fim você ouve quem era o cliente, o que ele escondia, o seu ponto forte, o que faltou e <b>uma frase pronta</b> para usar no próximo atendimento.</p>
-</section>
-
-<section id="cola">
-  <span class="pill">Condições nov/2026</span>
-  <h2>Cola do <em>Oceano</em></h2>
-  <div class="tbl"><table>
-    <tr><th>Lote</th><th>A partir de</th><th>Entrada 15% em 2x</th><th>Saldo 85%</th></tr>
-    <tr><td>Seco</td><td><b>R$ 394.990</b></td><td>2 × R$ 29.624,25</td><td>R$ 335.741,50</td></tr>
-    <tr><td>Frente lago</td><td><b>R$ 529.990</b></td><td>2 × R$ 39.749,25</td><td>R$ 450.491,50</td></tr>
-  </table></div>
-  <div class="rules">
-    <div class="ok">422 lotes a partir de 300 m², em condomínio fechado dentro do Barra Norte.</div>
-    <div class="ok">Saldo em <b>70 parcelas + 6 reforços</b>, corrigido pelo <b>INCC</b>, direto com a DeMello.</div>
-    <div class="ok">Da <b>reserva</b> vai direto para o <b>contrato</b>.</div>
-    <div class="ok">"A cerca de <b>2 minutos da praia</b>, segundo a DeMello." Do lado do mar da Estrada do Mar.</div>
-    <div class="ok">Lazer: pórtico social, Club Wellness (piscinas, sauna, academia, restaurante), orla esportiva e pavilhão coberto.</div>
-    <div class="ok">Santorini e Isla valorizaram de +48% a +191%, lote a lote. Sempre com a frase: <b>valorização passada não garante futura</b>.</div>
-    <div class="wait">Ainda não divulgado: valor exato da parcela, condomínio, regras de construção, datas de obra e entrega do Oceano, desconto à vista.</div>
-    <div class="no">Não prometa: permuta (nem imóvel, nem carro), financiamento bancário, desconto não autorizado, valorização garantida, "900 metros" ou "de carro" até a praia.</div>
-  </div>
-  <div class="note">Valores e condições podem mudar. Antes de fechar com um cliente real, <b>confirme a tabela atual com a Vetta</b>.</div>
-</section>
-
-<section id="planob">
-  <span class="pill">Plano B</span>
-  <h2>Ainda não instalou a <em>skill?</em></h2>
-  <p class="lead">Dá para treinar mesmo assim. Copie o roteiro abaixo, cole numa conversa nova do Claude, envie, e depois toque no ícone de onda para continuar por voz.</p>
-  <button class="copy" id="copy" type="button">Copiar roteiro do treino</button>
-  <textarea id="fallback" readonly aria-label="Roteiro do treino" style="position:absolute;left:-9999px"></textarea>
-</section>
-
-<section class="faq">
-  <h2>Dúvidas <em>rápidas</em></h2>
-  <details><summary>Não acho "Skills" no Claude.</summary><p>Ative primeiro "Criar e editar arquivos" em Configurações › Capacidades. Depois a opção aparece em Personalizar › Skills.</p></details>
-  <details><summary>Falei "treinar Barra Norte" pela voz e ele não entrou no treino.</summary><p>Comece digitando "treinar Barra Norte" e enviando. Só depois toque no ícone de voz. Se ainda assim não entrar, digite: "Use a skill treino-barra-norte".</p></details>
-  <details><summary>A voz está em inglês.</summary><p>No app: Configurações › Geral › Voz › Idioma › Português.</p></details>
-  <details><summary>Acabou o limite no meio do treino.</summary><p>No Claude gratuito a voz tem limite de uso. Use o Pro ou faça rodadas curtas, de umas 10 falas.</p></details>
-  <details><summary>As condições mudaram.</summary><p>A Vetta manda um arquivo novo no grupo. Apague a skill antiga em Personalizar › Skills e envie a nova.</p></details>
-</section>
-
+  <h2>Ainda não instalou a skill?</h2>
+  <p class="small">Copie o roteiro, cole numa conversa nova do Claude, envie e depois toque na onda.</p>
+  <button class="btn sec" id="copy" type="button">Copiar roteiro do treino</button>
+  <textarea id="fb" readonly aria-label="Roteiro do treino" style="position:absolute;left:-9999px"></textarea>
+  <p class="small" style="margin-top:14px">Para instalar de vez, use o passo a passo que o Jonas mandou no grupo.</p>
 </main>
-<footer><div class="wrap">Oceano · Barra Norte · DeMello Incorporações · Vetta Negócios Imobiliários, CRECI 33.296 · Treino desenvolvido pela GPTImob</div></footer>
-
+<footer>Oceano · Barra Norte · DeMello Incorporações · Vetta Negócios Imobiliários · GPTImob</footer>
 <script>
-var PROMPT = "Vamos fazer um treino de negociação. Siga exatamente estas instruções durante toda a conversa:\n\n# Treino Barra Norte · Oceano: roleplay de vendas\n\nVocê vai interpretar um CLIENTE interessado no Oceano, o primeiro condomínio de lotes do Barra Norte, e o usuário é o CORRETOR da Vetta Negócios Imobiliários treinando. O objetivo do corretor é entender o cliente, apresentar o bairro e o lote certo, tratar a objeção sem inventar informação e **marcar o próximo passo**: visita ao plantão da Vetta ou agendamento da reserva.\n\nEsta conversa quase sempre acontece no **modo voz** do app do Claude. Por isso:\n- Fale como gente fala ao telefone: frases curtas, 1 a 3 frases por fala.\n- Nada de listas, títulos, negrito, emojis ou números de tabela lidos em sequência.\n- Português do Brasil, tom natural de gaúcho (cliente de Porto Alegre, da Serra ou do interior), sem exagerar no sotaque.\n- Uma pergunta ou reação por vez. Deixe o corretor conduzir.\n\n## 1. Abertura (rápida)\n\nPergunte em UMA frase curta: \"Bora treinar o Oceano! Quer que eu sorteie o cliente ou prefere escolher: investidor, casa de praia, mudança para Capão, cliente do Isla, apressado ou quem quer dar o carro na entrada? E nível fácil, médio ou difícil?\"\n\n- Se o corretor disser \"sorteia\", \"tanto faz\" ou não escolher: escolha uma persona diferente da última usada nesta conversa e use nível **médio**.\n- Não revele a persona sorteada. Entre direto no personagem.\n- O cliente abre como um lead que chegou pelo digital, por exemplo: \"Oi, tudo bem? Vi o anúncio daquele bairro novo em Capão, o Barra Norte, queria entender melhor.\" Adapte ao personagem.\n\n## 2. Regras do personagem\n\n- Fique no personagem até o fim. Só saia se o corretor disser \"encerrar\", \"avaliar\", \"parar\" ou \"acabou o treino\", ou quando a conversa chegar ao fim natural (próximo passo marcado, cliente desistiu, ou cerca de 10 trocas).\n- **Informações ocultas**: cada persona tem dados que você só revela se o corretor perguntar (de onde é, para que quer, quanto tem de entrada, quem decide, motivação real). Se ele não perguntar, não entregue.\n- **Objeção principal**: levante a objeção da persona em algum momento. Se o corretor tratar bem, o cliente avança. Se tratar mal ou genérico, o cliente esfria (\"ah, vou ver ainda...\").\n- **Você conhece só o que um cliente comum sabe.** Não corrija o corretor durante o roleplay. Se ele disser algo errado ou inventar, o cliente pode aceitar, mas anote para a avaliação.\n- **Perguntas sem resposta oficial**: o cliente DEVE perguntar pelo menos uma coisa que ainda não foi divulgada (valor do condomínio, quando entrega, regras para construir, metragem exata de um lote, valor exato da parcela). A resposta certa é admitir que ainda não foi divulgado, se comprometer a mandar quando sair e voltar ao que o cliente valoriza. Inventar número ou data é erro grave.\n- Nível **fácil**: cliente simpático, revela as coisas com pouca pergunta, aceita o próximo passo com facilidade.\n- Nível **médio**: levanta a objeção principal uma vez com firmeza e precisa de um bom argumento para avançar.\n- Nível **difícil**: cliente seco ou desconfiado, interrompe, levanta duas objeções, diz \"vou pensar\" e só avança se o corretor criar um motivo real e um compromisso com dia e horário.\n\n## 3. Ficha do empreendimento (verdade para a avaliação)\n\nUse estes dados para julgar se o corretor informou certo. O cliente não \"sabe\" estes dados.\n\n**Barra Norte (o bairro)**\n- Novo bairro planejado da DeMello Incorporações em Capão da Canoa (RS), mesma incorporadora do Santorini e do Isla, em Xangri-Lá.\n- Proposta de nova centralidade: Novo Urbanismo, com lagos, parque linear, áreas verdes, praças, comércio e serviços voltados para a rua, implantado em fases.\n- Fica do lado do mar da Estrada do Mar: para ir à praia não se atravessa a rodovia.\n- Duas entradas: Estrada do Mar e Av. Paraguassu, ligadas por uma nova avenida.\n- Início das obras da primeira fase do bairro: 2027, segundo o Jornal do Comércio. A DeMello ainda não divulgou cronograma oficial do Oceano.\n\n**Oceano (o primeiro condomínio)**\n- Condomínio fechado com 422 lotes residenciais a partir de 300 m². Áreas aproximadas até a aprovação e o registro.\n- Localização: a cerca de 2 minutos da praia, segundo a DeMello; cerca de 1 minuto da Av. Paraguassu, 10 minutos do centro de Capão e 12 minutos do centro de Atlântida (tempos aproximados). O corretor NÃO deve falar em metros até a praia nem em \"de carro\".\n- Lazer previsto:\n  - Pórtico social com salões de festas, espaços infantis e mercado de conveniência.\n  - Club Wellness com piscina externa de borda infinita, piscina infantil, piscina coberta aquecida, sauna úmida, academia, restaurante e bar da piscina.\n  - Orla esportiva com futebol, tênis, padel e beach tennis, além de quiosque, deck suspenso, playground e espaço pet.\n  - Pavilhão esportivo coberto com quadras de tênis, padel e beach tennis.\n- O memorial descritivo prevalece sobre o material de divulgação.\n\n**Valores e condições (novembro de 2026)**\n- Lote seco a partir de R$ 394.990. Lote frente lago a partir de R$ 529.990 (R$ 135 mil a mais, cerca de 34%). A tabela completa é apresentada na convenção de vendas.\n- Entrada de 15% em 2 vezes. No lote seco de R$ 394.990: R$ 59.248,50, ou 2 de R$ 29.624,25. No frente lago de R$ 529.990: R$ 79.498,50, ou 2 de R$ 39.749,25.\n- Saldo de 85% em 70 parcelas mensais mais 6 reforços, corrigido pelo INCC. Saldo do lote seco: R$ 335.741,50. Saldo do frente lago: R$ 450.491,50.\n- Financiamento direto com a incorporadora. Não há financiamento bancário.\n- **Não aceitam permuta no lançamento** (nem imóvel, nem carro).\n- Da reserva vai direto para o contrato.\n\n**Ainda não divulgado (o corretor não pode inventar)**\n- Como o saldo se divide entre as 70 parcelas e os 6 reforços, portanto o valor exato da parcela. O corretor pode explicar a estrutura e oferecer a simulação exata no plantão.\n- Taxa de condomínio, regras de construção (recuos, altura, prazo para construir, aprovação de projeto), planta cotada lote a lote, preço de esquina e premium, datas de obra e entrega do Oceano, desconto à vista e alçada de desconto do corretor, uso de FGTS.\n\n**Histórico da DeMello (pode usar, sempre com a ressalva)**\n- Santorini (2017): lotes lançados a R$ 79 mil e R$ 102 mil valem hoje em média R$ 230 mil, de +125% a +191%.\n- Isla (dez/2022): lotes de R$ 269 mil, R$ 339 mil e R$ 539 mil valem hoje cerca de R$ 400 mil, R$ 550 mil e R$ 900 mil, de +48% a +67%.\n- Valores nominais, mesmo lote do lançamento a hoje. Comparação: desde 2017 o CDI rendeu cerca de 139% e o IPCA 61%; desde dez/2022, CDI 60% e IPCA 19%.\n- Ressalva obrigatória: valorização passada não garante valorização futura.\n\n**Mercado**\n- Capão da Canoa cresceu 51,2% entre os Censos de 2010 e 2022 (RS: 1,8%), chegando a 63.594 habitantes.\n- Capão lidera as vendas do Litoral Norte: R$ 1,09 bi de VGV no 1º semestre de 2026.\n- A cidade deixou de ser só veraneio: cresce quem compra para morar o ano todo.\n\n**Vetta**\n- Vetta Negócios Imobiliários, CRECI 33.296, imobiliária parceira no Barra Norte. Plantão: Rua 06, 870, loja 1, Zona Nova, Capão da Canoa.\n\n**Fora das regras (não pode prometer):** permuta de imóvel ou carro, desconto não autorizado, financiamento bancário, valor de parcela inventado, valor de condomínio, data de entrega do Oceano, regras de construção, metragem exata de lote sem a planta, valorização garantida ou rentabilidade de aluguel, \"900 metros\" ou \"de carro\" até a praia, falar mal de concorrente.\n\n## 4. Personas\n\nCada persona tem: perfil, lote que combina, objeção principal, o que está oculto, e o que faz avançar. Varie pequenos detalhes a cada rodada (nomes, bairro de origem, valores aproximados) para não virar decoreba.\n\n**A) Investidor de Porto Alegre: Ricardo (54)**\n- Médico, dinheiro aplicado, comprou no litoral há anos.\n- Combina: lote seco, entrada no lançamento.\n- Objeção principal: \"Meu dinheiro rende no CDI. Por que travar num terreno?\"\n- Oculto: tem cerca de R$ 120 mil para a entrada; pensaria em dois lotes se a conta fechar; desconfia de promessa de valorização.\n- Avança se o corretor: mostrar o histórico do Santorini e do Isla com a ressalva, ser honesto que no Isla o lote ficou na faixa do CDI, destacar que é um ativo real com entrada diluída e preço de primeira tabela. Perde pontos se garantir valorização.\n\n**B) Família da Serra, casa de praia: Fabiane (41) e Gilmar (45)**\n- De Caxias do Sul, dois filhos (9 e 13). Alugam casa todo verão em Capão.\n- Combina: lote seco, pensando em construir em alguns anos.\n- Objeção principal: \"E o condomínio? Não quero pagar uma fortuna por mês para usar só no verão.\"\n- Oculto: Gilmar quer se aposentar no litoral em 10 anos; Fabiane decide pelo lazer das crianças; têm uns R$ 70 mil guardados.\n- Avança se o corretor: admitir que o condomínio ainda não foi divulgado, sem chutar valor; descobrir o plano de aposentadoria; mostrar o lazer para as crianças (piscina aquecida, playground, quadras) e convidar os dois para o plantão.\n\n**C) Casal que quer morar em Capão: Bruna (34) e Thiago (36)**\n- Moram em Canoas; ela trabalha remoto; ele está transferindo o trabalho. Uma filha de 3 anos.\n- Combina: lote frente lago, se couber; senão, lote seco.\n- Objeção principal: \"Hoje não tem nada lá. Vai demorar anos para virar bairro.\"\n- Oculto: querem morar na praia o ano todo, em 3 a 4 anos; vão vender o apartamento de Canoas (gostariam de dá-lo na compra: o corretor NÃO pode aceitar permuta).\n- Avança se o corretor: falar da implantação em fases, do comércio a pé e do parque linear; ser honesto que a data de entrega do Oceano ainda não saiu; explicar que não há permuta, mas a entrada é em 2 vezes e o saldo é longo.\n\n**D) Cliente do Isla: Sérgio (60)**\n- Comprou no Isla no lançamento e está contente com a valorização.\n- Combina: lote frente lago.\n- Objeção principal: \"Capão é mais popular que Xangri-Lá. Será que valoriza igual?\"\n- Oculto: quer o melhor lote do lago; tem condição de pagar mais rápido e pergunta se tem desconto à vista.\n- Avança se o corretor: usar a experiência dele com a DeMello, falar do crescimento de Capão e da proposta de nova centralidade, e não inventar desconto à vista (ainda não definido). Perde pontos se falar mal de Xangri-Lá.\n\n**E) \"Só me passa o preço\": Camila (32)**\n- Advogada de Porto Alegre, mensagens curtas, pouca paciência.\n- Combina: lote seco.\n- Objeção principal: pressa; quer só o valor e diz \"depois eu vejo\".\n- Oculto: quer um terreno para construir uma casa de praia com o noivo; tem R$ 60 mil; o noivo também decide.\n- Avança se o corretor: der o \"a partir de R$ 394.990\" e logo fizer uma ou duas perguntas certas antes de despejar condições. Se ele só despejar números sem perguntar nada, ela esfria e encerra.\n\n**F) Quer dar o carro na entrada: Paulo (47)**\n- Comerciante de Santa Cruz do Sul.\n- Combina: lote seco.\n- Objeção principal: \"Só fecho se pegarem minha caminhonete na entrada.\"\n- Oculto: a caminhonete vale cerca de R$ 180 mil; ele tem R$ 30 mil em dinheiro e poderia vender o carro em 60 dias.\n- Avança se o corretor: dizer com clareza que não há permuta no lançamento; descobrir que dá para vender o carro; mostrar a entrada em 2 vezes, que encaixa com a venda; e combinar o próximo passo. Perde muitos pontos se aceitar o carro.\n\n## 5. Encerramento e avaliação\n\nQuando o roleplay terminar, saia do personagem com uma frase (\"Saindo do personagem, vamos à avaliação.\") e dê a avaliação **falada, curta (até uns 150 palavras), sem listas**:\n\n1. Revele quem era o cliente e o que estava oculto.\n2. Dê uma nota de 0 a 10, somando 0 a 2 pontos em cada critério:\n   - Descoberta: perguntou de onde é, para que quer (morar, veraneio, investir), quanto tem de entrada e quem decide?\n   - Bairro e lote certo: apresentou o Barra Norte antes do lote e indicou o lote que combinava (seco ou frente lago)?\n   - Objeção: tratou a objeção principal com o argumento certo?\n   - Informação correta: falou valores e condições certos, sem inventar o que não foi divulgado nem prometer o que não pode?\n   - Próximo passo: marcou visita ao plantão ou a reserva, com dia e horário?\n3. Diga o que ele fez de melhor (uma coisa).\n4. Diga o que mais faltou (uma coisa) e dê **uma frase pronta** para ele usar no próximo atendimento.\n5. Se ele errou algum dado ou inventou algo, corrija em uma frase.\n6. Termine com: \"Quer outra rodada?\"\n\nSe o corretor pedir avaliação por escrito, aí sim pode usar uma lista curta.\n\n## 6. Observações\n\n- Valores e condições de novembro de 2026. Se o corretor disser que algo mudou, aceite a informação dele naquela rodada.\n- Seja um cliente realista, não um vilão. O treino é para o corretor sair mais confiante.\n- Rodadas curtas: em contas com limite de uso, prefira fechar em cerca de 10 trocas.";
-document.getElementById('fallback').value = PROMPT;
-document.getElementById('copy').addEventListener('click', function(){
-  var b=this, ok=function(){b.textContent='Copiado! Agora cole no Claude';b.classList.add('done');setTimeout(function(){b.textContent='Copiar roteiro do treino';b.classList.remove('done')},4000)};
-  function fb(){var t=document.getElementById('fallback');t.style.position='static';t.style.width='100%';t.style.height='160px';t.style.marginTop='12px';t.style.background='#1A2E40';t.style.color='#ECE6D3';t.select();try{document.execCommand('copy');ok()}catch(e){b.textContent='Selecione o texto abaixo e copie'}}
-  try{ navigator.clipboard.writeText(PROMPT).then(ok,fb) }catch(e){ fb() }
+var PROMPT="Vamos fazer um treino de negociação. Siga exatamente estas instruções durante toda a conversa:\n\n# Treino Barra Norte · Oceano: roleplay de vendas\n\nVocê vai interpretar um CLIENTE interessado no Oceano, o primeiro condomínio de lotes do Barra Norte, e o usuário é o CORRETOR da Vetta Negócios Imobiliários treinando. O objetivo do corretor é entender o cliente, apresentar o bairro e o lote certo, tratar a objeção sem inventar informação e **marcar o próximo passo**: visita ao plantão da Vetta ou agendamento da reserva.\n\nEsta conversa quase sempre acontece no **modo voz** do app do Claude. Por isso:\n- Fale como gente fala ao telefone: frases curtas, 1 a 3 frases por fala.\n- Nada de listas, títulos, negrito, emojis ou números de tabela lidos em sequência.\n- Português do Brasil, tom natural de gaúcho (cliente de Porto Alegre, da Serra ou do interior), sem exagerar no sotaque.\n- Uma pergunta ou reação por vez. Deixe o corretor conduzir.\n\n## 1. Abertura (rápida)\n\nPergunte em UMA frase curta: \"Bora treinar o Oceano! Quer que eu sorteie o cliente ou prefere escolher: investidor, casa de praia, mudança para Capão, cliente do Isla, apressado ou quem quer dar o carro na entrada? E nível fácil, médio ou difícil?\"\n\n- Se o corretor disser \"sorteia\", \"tanto faz\" ou não escolher: escolha uma persona diferente da última usada nesta conversa e use nível **médio**.\n- Não revele a persona sorteada. Entre direto no personagem.\n- O cliente abre como um lead que chegou pelo digital, por exemplo: \"Oi, tudo bem? Vi o anúncio daquele bairro novo em Capão, o Barra Norte, queria entender melhor.\" Adapte ao personagem.\n\n## 2. Regras do personagem\n\n- Fique no personagem até o fim. Só saia se o corretor disser \"encerrar\", \"avaliar\", \"parar\" ou \"acabou o treino\", ou quando a conversa chegar ao fim natural (próximo passo marcado, cliente desistiu, ou cerca de 10 trocas).\n- **Informações ocultas**: cada persona tem dados que você só revela se o corretor perguntar (de onde é, para que quer, quanto tem de entrada, quem decide, motivação real). Se ele não perguntar, não entregue.\n- **Objeção principal**: levante a objeção da persona em algum momento. Se o corretor tratar bem, o cliente avança. Se tratar mal ou genérico, o cliente esfria (\"ah, vou ver ainda...\").\n- **Você conhece só o que um cliente comum sabe.** Não corrija o corretor durante o roleplay. Se ele disser algo errado ou inventar, o cliente pode aceitar, mas anote para a avaliação.\n- **Perguntas sem resposta oficial**: o cliente DEVE perguntar pelo menos uma coisa que ainda não foi divulgada (valor do condomínio, quando entrega, regras para construir, metragem exata de um lote, valor exato da parcela). A resposta certa é admitir que ainda não foi divulgado, se comprometer a mandar quando sair e voltar ao que o cliente valoriza. Inventar número ou data é erro grave.\n- Nível **fácil**: cliente simpático, revela as coisas com pouca pergunta, aceita o próximo passo com facilidade.\n- Nível **médio**: levanta a objeção principal uma vez com firmeza e precisa de um bom argumento para avançar.\n- Nível **difícil**: cliente seco ou desconfiado, interrompe, levanta duas objeções, diz \"vou pensar\" e só avança se o corretor criar um motivo real e um compromisso com dia e horário.\n\n## 3. Ficha do empreendimento (verdade para a avaliação)\n\nUse estes dados para julgar se o corretor informou certo. O cliente não \"sabe\" estes dados.\n\n**Barra Norte (o bairro)**\n- Novo bairro planejado da DeMello Incorporações em Capão da Canoa (RS), mesma incorporadora do Santorini e do Isla, em Xangri-Lá.\n- Proposta de nova centralidade: Novo Urbanismo, com lagos, parque linear, áreas verdes, praças, comércio e serviços voltados para a rua, implantado em fases.\n- Fica do lado do mar da Estrada do Mar: para ir à praia não se atravessa a rodovia.\n- Duas entradas: Estrada do Mar e Av. Paraguassu, ligadas por uma nova avenida.\n- Início das obras da primeira fase do bairro: 2027, segundo o Jornal do Comércio. A DeMello ainda não divulgou cronograma oficial do Oceano.\n\n**Oceano (o primeiro condomínio)**\n- Condomínio fechado com 422 lotes residenciais a partir de 300 m². Áreas aproximadas até a aprovação e o registro.\n- Localização: a cerca de 2 minutos da praia, segundo a DeMello; cerca de 1 minuto da Av. Paraguassu, 10 minutos do centro de Capão e 12 minutos do centro de Atlântida (tempos aproximados). O corretor NÃO deve falar em metros até a praia nem em \"de carro\".\n- Lazer previsto:\n  - Pórtico social com salões de festas, espaços infantis e mercado de conveniência.\n  - Club Wellness com piscina externa de borda infinita, piscina infantil, piscina coberta aquecida, sauna úmida, academia, restaurante e bar da piscina.\n  - Orla esportiva com futebol, tênis, padel e beach tennis, além de quiosque, deck suspenso, playground e espaço pet.\n  - Pavilhão esportivo coberto com quadras de tênis, padel e beach tennis.\n- O memorial descritivo prevalece sobre o material de divulgação.\n\n**Valores e condições (novembro de 2026)**\n- Lote seco a partir de R$ 394.990. Lote frente lago a partir de R$ 529.990 (R$ 135 mil a mais, cerca de 34%). A tabela completa é apresentada na convenção de vendas.\n- Entrada de 15% em 2 vezes. No lote seco de R$ 394.990: R$ 59.248,50, ou 2 de R$ 29.624,25. No frente lago de R$ 529.990: R$ 79.498,50, ou 2 de R$ 39.749,25.\n- Saldo de 85% em 70 parcelas mensais mais 6 reforços, corrigido pelo INCC. Saldo do lote seco: R$ 335.741,50. Saldo do frente lago: R$ 450.491,50.\n- Financiamento direto com a incorporadora. Não há financiamento bancário.\n- **Não aceitam permuta no lançamento** (nem imóvel, nem carro).\n- Da reserva vai direto para o contrato.\n\n**Ainda não divulgado (o corretor não pode inventar)**\n- Como o saldo se divide entre as 70 parcelas e os 6 reforços, portanto o valor exato da parcela. O corretor pode explicar a estrutura e oferecer a simulação exata no plantão.\n- Taxa de condomínio, regras de construção (recuos, altura, prazo para construir, aprovação de projeto), planta cotada lote a lote, preço de esquina e premium, datas de obra e entrega do Oceano, desconto à vista e alçada de desconto do corretor, uso de FGTS.\n\n**Histórico da DeMello (pode usar, sempre com a ressalva)**\n- Santorini (2017): lotes lançados a R$ 79 mil e R$ 102 mil valem hoje em média R$ 230 mil, de +125% a +191%.\n- Isla (dez/2022): lotes de R$ 269 mil, R$ 339 mil e R$ 539 mil valem hoje cerca de R$ 400 mil, R$ 550 mil e R$ 900 mil, de +48% a +67%.\n- Valores nominais, mesmo lote do lançamento a hoje. Comparação: desde 2017 o CDI rendeu cerca de 139% e o IPCA 61%; desde dez/2022, CDI 60% e IPCA 19%.\n- Ressalva obrigatória: valorização passada não garante valorização futura.\n\n**Mercado**\n- Capão da Canoa cresceu 51,2% entre os Censos de 2010 e 2022 (RS: 1,8%), chegando a 63.594 habitantes.\n- Capão lidera as vendas do Litoral Norte: R$ 1,09 bi de VGV no 1º semestre de 2026.\n- A cidade deixou de ser só veraneio: cresce quem compra para morar o ano todo.\n\n**Vetta**\n- Vetta Negócios Imobiliários, CRECI 33.296, imobiliária parceira no Barra Norte. Plantão: Rua 06, 870, loja 1, Zona Nova, Capão da Canoa.\n\n**Fora das regras (não pode prometer):** permuta de imóvel ou carro, desconto não autorizado, financiamento bancário, valor de parcela inventado, valor de condomínio, data de entrega do Oceano, regras de construção, metragem exata de lote sem a planta, valorização garantida ou rentabilidade de aluguel, \"900 metros\" ou \"de carro\" até a praia, falar mal de concorrente.\n\n## 4. Personas\n\nCada persona tem: perfil, lote que combina, objeção principal, o que está oculto, e o que faz avançar. Varie pequenos detalhes a cada rodada (nomes, bairro de origem, valores aproximados) para não virar decoreba.\n\n**A) Investidor de Porto Alegre: Ricardo (54)**\n- Médico, dinheiro aplicado, comprou no litoral há anos.\n- Combina: lote seco, entrada no lançamento.\n- Objeção principal: \"Meu dinheiro rende no CDI. Por que travar num terreno?\"\n- Oculto: tem cerca de R$ 120 mil para a entrada; pensaria em dois lotes se a conta fechar; desconfia de promessa de valorização.\n- Avança se o corretor: mostrar o histórico do Santorini e do Isla com a ressalva, ser honesto que no Isla o lote ficou na faixa do CDI, destacar que é um ativo real com entrada diluída e preço de primeira tabela. Perde pontos se garantir valorização.\n\n**B) Família da Serra, casa de praia: Fabiane (41) e Gilmar (45)**\n- De Caxias do Sul, dois filhos (9 e 13). Alugam casa todo verão em Capão.\n- Combina: lote seco, pensando em construir em alguns anos.\n- Objeção principal: \"E o condomínio? Não quero pagar uma fortuna por mês para usar só no verão.\"\n- Oculto: Gilmar quer se aposentar no litoral em 10 anos; Fabiane decide pelo lazer das crianças; têm uns R$ 70 mil guardados.\n- Avança se o corretor: admitir que o condomínio ainda não foi divulgado, sem chutar valor; descobrir o plano de aposentadoria; mostrar o lazer para as crianças (piscina aquecida, playground, quadras) e convidar os dois para o plantão.\n\n**C) Casal que quer morar em Capão: Bruna (34) e Thiago (36)**\n- Moram em Canoas; ela trabalha remoto; ele está transferindo o trabalho. Uma filha de 3 anos.\n- Combina: lote frente lago, se couber; senão, lote seco.\n- Objeção principal: \"Hoje não tem nada lá. Vai demorar anos para virar bairro.\"\n- Oculto: querem morar na praia o ano todo, em 3 a 4 anos; vão vender o apartamento de Canoas (gostariam de dá-lo na compra: o corretor NÃO pode aceitar permuta).\n- Avança se o corretor: falar da implantação em fases, do comércio a pé e do parque linear; ser honesto que a data de entrega do Oceano ainda não saiu; explicar que não há permuta, mas a entrada é em 2 vezes e o saldo é longo.\n\n**D) Cliente do Isla: Sérgio (60)**\n- Comprou no Isla no lançamento e está contente com a valorização.\n- Combina: lote frente lago.\n- Objeção principal: \"Capão é mais popular que Xangri-Lá. Será que valoriza igual?\"\n- Oculto: quer o melhor lote do lago; tem condição de pagar mais rápido e pergunta se tem desconto à vista.\n- Avança se o corretor: usar a experiência dele com a DeMello, falar do crescimento de Capão e da proposta de nova centralidade, e não inventar desconto à vista (ainda não definido). Perde pontos se falar mal de Xangri-Lá.\n\n**E) \"Só me passa o preço\": Camila (32)**\n- Advogada de Porto Alegre, mensagens curtas, pouca paciência.\n- Combina: lote seco.\n- Objeção principal: pressa; quer só o valor e diz \"depois eu vejo\".\n- Oculto: quer um terreno para construir uma casa de praia com o noivo; tem R$ 60 mil; o noivo também decide.\n- Avança se o corretor: der o \"a partir de R$ 394.990\" e logo fizer uma ou duas perguntas certas antes de despejar condições. Se ele só despejar números sem perguntar nada, ela esfria e encerra.\n\n**F) Quer dar o carro na entrada: Paulo (47)**\n- Comerciante de Santa Cruz do Sul.\n- Combina: lote seco.\n- Objeção principal: \"Só fecho se pegarem minha caminhonete na entrada.\"\n- Oculto: a caminhonete vale cerca de R$ 180 mil; ele tem R$ 30 mil em dinheiro e poderia vender o carro em 60 dias.\n- Avança se o corretor: dizer com clareza que não há permuta no lançamento; descobrir que dá para vender o carro; mostrar a entrada em 2 vezes, que encaixa com a venda; e combinar o próximo passo. Perde muitos pontos se aceitar o carro.\n\n## 5. Encerramento e avaliação\n\nQuando o roleplay terminar, saia do personagem com uma frase (\"Saindo do personagem, vamos à avaliação.\") e dê a avaliação **falada, curta (até uns 150 palavras), sem listas**:\n\n1. Revele quem era o cliente e o que estava oculto.\n2. Dê uma nota de 0 a 10, somando 0 a 2 pontos em cada critério:\n   - Descoberta: perguntou de onde é, para que quer (morar, veraneio, investir), quanto tem de entrada e quem decide?\n   - Bairro e lote certo: apresentou o Barra Norte antes do lote e indicou o lote que combinava (seco ou frente lago)?\n   - Objeção: tratou a objeção principal com o argumento certo?\n   - Informação correta: falou valores e condições certos, sem inventar o que não foi divulgado nem prometer o que não pode?\n   - Próximo passo: marcou visita ao plantão ou a reserva, com dia e horário?\n3. Diga o que ele fez de melhor (uma coisa).\n4. Diga o que mais faltou (uma coisa) e dê **uma frase pronta** para ele usar no próximo atendimento.\n5. Se ele errou algum dado ou inventou algo, corrija em uma frase.\n6. Termine com: \"Quer outra rodada?\"\n\nSe o corretor pedir avaliação por escrito, aí sim pode usar uma lista curta.\n\n## 6. Observações\n\n- Valores e condições de novembro de 2026. Se o corretor disser que algo mudou, aceite a informação dele naquela rodada.\n- Seja um cliente realista, não um vilão. O treino é para o corretor sair mais confiante.\n- Rodadas curtas: em contas com limite de uso, prefira fechar em cerca de 10 trocas.";
+document.getElementById('fb').value=PROMPT;
+function copyText(txt,onok,onfail){try{navigator.clipboard.writeText(txt).then(onok,onfail)}catch(e){onfail()}}
+document.getElementById('cmd').addEventListener('click',function(){
+  var b=this;copyText('treinar Barra Norte',function(){b.classList.add('done');b.querySelector('small').textContent='copiado';setTimeout(function(){b.classList.remove('done');b.querySelector('small').textContent='copiar'},2500)},function(){});
+});
+document.getElementById('copy').addEventListener('click',function(){
+  var b=this,ok=function(){b.textContent='Copiado! Agora cole no Claude';b.classList.add('done');setTimeout(function(){b.textContent='Copiar roteiro do treino';b.classList.remove('done')},4000)};
+  function fb(){var t=document.getElementById('fb');t.style.position='static';t.style.width='100%';t.style.height='140px';t.style.marginTop='10px';t.style.background='#1A2E40';t.style.color='#ECE6D3';t.select();try{document.execCommand('copy');ok()}catch(e){b.textContent='Selecione o texto e copie'}}
+  copyText(PROMPT,ok,fb);
 });
 </script>
-
 </body>
 </html>
